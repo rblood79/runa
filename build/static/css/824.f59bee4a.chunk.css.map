@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/824.f59bee4a.chunk.css","mappings":"AAAA,MACI,2BAA6B,CAC7B,QAAS,CACT,SACJ","sources":["page/main/landscape.css"],"sourcesContent":["@page {\n    size: A4 landscape !important;\n    margin: 0;\n    padding: 0;\n}"],"names":[],"sourceRoot":""}

@@ -7,7 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --colorLight: #e8e8e8;
+  --colorBlackRGB: 0, 0, 0;
+  --colorBlack: rgb(var(--colorBlackRGB));
+  --colorBlack02: rgba(var(--colorBlackRGB), .2);
+
+  --radius: 16px;
+  --radiusOut: 24px;
+
+  --border: 16px;
+
+  --gap: 16px;
 }

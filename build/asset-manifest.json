@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/runa/build/static/css/main.6b571720.css",
+    "main.js": "/runa/build/static/js/main.493ec441.js",
+    "static/css/505.caa3fb70.chunk.css": "/runa/build/static/css/505.caa3fb70.chunk.css",
+    "static/js/505.4c1ece78.chunk.js": "/runa/build/static/js/505.4c1ece78.chunk.js",
+    "static/css/824.f59bee4a.chunk.css": "/runa/build/static/css/824.f59bee4a.chunk.css",
+    "static/js/824.110fba9e.chunk.js": "/runa/build/static/js/824.110fba9e.chunk.js",
+    "static/js/787.89ccd267.chunk.js": "/runa/build/static/js/787.89ccd267.chunk.js",
+    "static/media/logo.svg": "/runa/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/runa/build/index.html",
+    "main.6b571720.css.map": "/runa/build/static/css/main.6b571720.css.map",
+    "main.493ec441.js.map": "/runa/build/static/js/main.493ec441.js.map",
+    "505.caa3fb70.chunk.css.map": "/runa/build/static/css/505.caa3fb70.chunk.css.map",
+    "505.4c1ece78.chunk.js.map": "/runa/build/static/js/505.4c1ece78.chunk.js.map",
+    "824.f59bee4a.chunk.css.map": "/runa/build/static/css/824.f59bee4a.chunk.css.map",
+    "824.110fba9e.chunk.js.map": "/runa/build/static/js/824.110fba9e.chunk.js.map",
+    "787.89ccd267.chunk.js.map": "/runa/build/static/js/787.89ccd267.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b571720.css",
+    "static/js/main.493ec441.js"
+  ]
+}

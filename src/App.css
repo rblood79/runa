@@ -1,38 +1,123 @@
+.page div, .page span {
+  /*border: 1px solid #f00;*/
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contents {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 48px;
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  display: grid;
+  border: 2px solid #000;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.page.landscape {
+  width: 29.7cm;
+  height: 21cm;
+}
+
+.page.portrait {
+  width: 21cm;
+  height: 29.7cm;
+}
+
+
+
+/*@page{
+  size: A4 portrait;
+  margin: 0;
+  padding: 0;
+}*/
+
+
+@media print {
+
+  .controller {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    page-break-after: avoid;
+    page-break-before: avoid
+  }
+
+  .body, .page {
+    margin-top: -1px
+  }
+
+  /*서브픽셀 해결1*/
+
+  .contents {
+    gap: 0;
+  }
+
+  .page {
+    border: none;
+  }
+
+  .page:first-child {
+    page-break-before: auto;
+    page-break-inside: avoid
+  }
+
+  .page.portrait {
+    overflow: hidden;
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    /*서브픽셀 해결1 사용시*/
+    height: calc(297mm - 1px);
+    /*서브픽셀 해결2 - IE는 미지원*/
+    page-break-before: always
+  }
+
+  .page.landscape {
+    overflow: hidden;
+    position: relative;
+    width: 297mm;
+    height: 210mm;
+    /*서브픽셀 해결1 사용시*/
+    height: calc(210mm - 1px);
+    /*서브픽셀 해결2 - IE는 미지원*/
+    page-break-before: always
+  }
+
+  .page>.content {
+    /*img를 .page안에 꽉차게 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%
+  }
+
 }
