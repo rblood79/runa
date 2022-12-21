@@ -23,7 +23,7 @@ const App = (props) => {
             fontSize: props.FONTSIZE,
             //border: props.VALUE && '1px solid #000'
         }}
-            data-uid={props.UID}
+            data-id={props.ID}
         >
             {
                 props.VALUE ? props.VALUE :

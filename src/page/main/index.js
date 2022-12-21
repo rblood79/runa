@@ -15,7 +15,8 @@ axios.defaults.withCredentials = true;
 
 const App = () => {
     const ref = useRef();
-    const [orientation, setOrientation] = useState(true)
+    const [orientation, setOrientation] = useState(true);
+    const [item, setItem] = useState(null);
     const [layout, setLayout] = useState(
         {
             INI: {
@@ -27,29 +28,29 @@ const App = () => {
                 {
                     DATA: [
                         {
-                            UID: '00',
+                            ID: '00',
                             LAYER: 'head',
                             REPEAT: true,
                             WIDTH: '100%',
-                            HEIGHT: '400px',
-                            PADDING: '0px',
+                            HEIGHT: '300x',
+                            PADDING: '16px',
                             COLOR: '#ff0000',
                             BACKGROUND: '#f00',
                             FONT: 'Arial',
                             FONTSIZE: '10pt',
                             DATA: [
                                 {
-                                    UID: '01',
+                                    ID: '01',
                                     WIDTH: 'auto',
                                     HEIGHT: 'auto',
-                                    PADDING: '0px',
+                                    PADDING: '16px',
                                     COLOR: '#ff0000',
                                     BACKGROUND: '#cccccc',
                                     FONT: 'Arial',
                                     FONTSIZE: '10pt',
                                     DATA: [
                                         {
-                                            UID: '011',
+                                            ID: '011',
                                             WIDTH: 'auto',
                                             HEIGHT: 'auto',
                                             PADDING: '0px',
@@ -60,12 +61,12 @@ const App = () => {
                                             VALUE: 'QAWSED',
                                         },
                                         {
-                                            UID: '012',
+                                            ID: '012',
                                             WIDTH: 'auto',
-                                            HEIGHT: 'auto',
+                                            HEIGHT: '58px',
                                             PADDING: '0px',
                                             COLOR: '#ff0000',
-                                            BACKGROUND: '#ccc',
+                                            BACKGROUND: '#343434',
                                             FONT: 'Arial',
                                             FONTSIZE: '10pt',
                                             VALUE: 'EFE59',
@@ -73,7 +74,7 @@ const App = () => {
                                     ]
                                 },
                                 {
-                                    UID: '02',
+                                    ID: '02',
                                     WIDTH: 'auto',
                                     HEIGHT: 'auto',
                                     PADDING: '4px',
@@ -86,7 +87,7 @@ const App = () => {
                             ]
                         },
                         {
-                            UID: '10',
+                            ID: '10',
                             LAYER: 'body',
                             REPEAT: false,
                             WIDTH: '100%',
@@ -96,7 +97,7 @@ const App = () => {
                             DATA: []
                         },
                         {
-                            UID: '20',
+                            ID: '20',
                             LAYER: 'foot',
                             REPEAT: true,
                             WIDTH: '100%',
@@ -113,29 +114,29 @@ const App = () => {
         },
     )
 
-    function findNestedObj(entireObj, keyToFind, valToFind) {
-        let foundObj;
+    const targetItem = (entireObj, keyToFind, valToFind) => {
+        let foundItem;
         JSON.stringify(entireObj, (_, nestedValue) => {
             if (nestedValue && nestedValue[keyToFind] === valToFind) {
-                foundObj = nestedValue;
+                foundItem = nestedValue;
             }
             return nestedValue;
         });
-        return foundObj;
+        return foundItem;
     };
 
     const clickHandle = (event) => {
-        const targetID = event.target.dataset.uid;
-        //console.log(event.target.dataset.id)
-        //console.log(foundModule)
-
-        console.log(findNestedObj(layout, 'UID', targetID));
-        //console.log(JSON.stringify(layout))
+        const targetID = event.target.dataset.id;
+        setItem(targetItem(layout, 'ID', targetID));
     }
     useEffect(() => {
         //orientation ? import ('./portrait.css') : import ('./landscape.css');
         ref.current.addEventListener("click", clickHandle);
     }, [ref])
+
+    useEffect(() => {
+        console.log(item)
+    }, [item])
     return (
         <div className='container'>
 
