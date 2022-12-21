@@ -9,7 +9,7 @@ import { Cell } from '../../components';
 
 const App = (props) => {
     useEffect(() => {
-        //console.log(props.DATA)
+        
     }, [])
 
     return (
@@ -22,13 +22,15 @@ const App = (props) => {
             fontFamily: props.FONT,
             fontSize: props.FONTSIZE,
             //border: props.VALUE && '1px solid #000'
-        }}>
+        }}
+            data-uid={props.UID}
+        >
             {
-                props.VALUE ? props.VALUE : 
-                props.DATA.map((item, index) => (
-                    <Cell key={index} {...item}>
-                    </Cell>
-                ))
+                props.VALUE ? props.VALUE :
+                    props.DATA.map((item, index) => (
+                        <Cell key={index} {...item}>
+                        </Cell>
+                    ))
 
             }
         </div>
