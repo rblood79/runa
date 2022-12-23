@@ -1,0 +1,85 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.resize {
+  margin: 0;
+  padding: 0;
+}
+
+.resizeTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.36);
+  border-bottom: 1px solid #00f;
+  cursor: ns-resize;
+  touch-action: none;
+  z-index: 100;
+}
+
+.resizeRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.36);
+  border-right: 1px solid #00f;
+  cursor: ew-resize;
+  touch-action: none;
+  z-index: 100;
+}
+
+.resizeBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.36);
+  border-bottom: 1px solid #00f;
+  cursor: ns-resize;
+  touch-action: none;
+  z-index: 100;
+}
+
+.resizeLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.36);
+  border-right: 1px solid #00f;
+  cursor: ew-resize;
+  touch-action: none;
+  z-index: 100;
+}
+
+.resizeRight::after, .resizeTop::after, .resizeBottom::after, .resizeLeft::after {
+  content: '';
+  position: absolute;
+  border: 1px solid #00f;
+  background-color: #fff;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  display: flex;
+}

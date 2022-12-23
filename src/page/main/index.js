@@ -4,7 +4,7 @@
 * @parameter    : title
 */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import { Cell } from '../../components';
@@ -38,6 +38,7 @@ const App = () => {
                             BACKGROUND: '#f00',
                             FONT: 'Arial',
                             FONTSIZE: '10pt',
+                            EDIT: false,
                             DATA: [
                                 {
                                     ID: '01',
@@ -48,6 +49,7 @@ const App = () => {
                                     BACKGROUND: '#cccccc',
                                     FONT: 'Arial',
                                     FONTSIZE: '10pt',
+                                    EDIT: false,
                                     DATA: [
                                         {
                                             ID: '011',
@@ -59,6 +61,7 @@ const App = () => {
                                             FONT: 'Arial',
                                             FONTSIZE: '10pt',
                                             VALUE: 'QAWSED',
+                                            EDIT: false,
                                         },
                                         {
                                             ID: '012',
@@ -70,6 +73,7 @@ const App = () => {
                                             FONT: 'Arial',
                                             FONTSIZE: '10pt',
                                             VALUE: 'EFE59',
+                                            EDIT: false,
                                         }
                                     ]
                                 },
@@ -83,6 +87,7 @@ const App = () => {
                                     FONT: 'Arial',
                                     FONTSIZE: '10pt',
                                     VALUE: '9874',
+                                    EDIT: false,
                                 }
                             ]
                         },
@@ -93,8 +98,9 @@ const App = () => {
                             WIDTH: '100%',
                             HEIGHT: 'auto',
                             BACKGROUND: '#cccccc',
-                            VALUE: 'grid',
-                            DATA: []
+                            VALUE: 'body',
+                            EDIT: false,
+                            DATA: [],
                         },
                         {
                             ID: '20',
@@ -104,7 +110,8 @@ const App = () => {
                             HEIGHT: 'auto',
                             BACKGROUND: '#eeccee',
                             VALUE: 'food',
-                            DATA: []
+                            EDIT: false,
+                            DATA: [],
                         }
                     ]
                 },
@@ -113,6 +120,16 @@ const App = () => {
 
         },
     )
+    
+    const downHandle = useCallback((event) => {
+        console.log('>>',item)        
+    }, [layout]);
+
+    const clickHandle = useCallback((event) => {
+        const targetID = event.target.dataset.id;
+        console.log(targetID)
+        setItem(targetItem(layout, 'ID', targetID));
+    }, [layout]);
 
     const targetItem = (entireObj, keyToFind, valToFind) => {
         let foundItem;
@@ -124,15 +141,12 @@ const App = () => {
         });
         return foundItem;
     };
-
-    const clickHandle = (event) => {
-        const targetID = event.target.dataset.id;
-        setItem(targetItem(layout, 'ID', targetID));
-    }
+    
     useEffect(() => {
         //orientation ? import ('./portrait.css') : import ('./landscape.css');
+        ref.current.addEventListener("mousedown", downHandle);
         ref.current.addEventListener("click", clickHandle);
-    }, [ref])
+    }, [clickHandle, downHandle, ref])
 
     useEffect(() => {
         console.log(item)
